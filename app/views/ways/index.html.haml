@@ -1,0 +1,23 @@
+%h1 Listing ways
+
+%table
+  %thead
+    %tr
+      %th Steps
+      %th Stand
+      %th
+      %th
+      %th
+
+  %tbody
+    - @ways.each do |way|
+      %tr
+        %td= way.steps
+        %td= way.stand
+        %td= link_to 'Show', way
+        %td= link_to 'Edit', edit_way_path(way)
+        %td= link_to 'Destroy', way, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Way', new_way_path

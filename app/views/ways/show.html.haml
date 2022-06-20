@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Steps:
+  = @way.steps
+%p
+  %b Stand:
+  = @way.stand
+
+= link_to 'Edit', edit_way_path(@way)
+\|
+= link_to 'Back', ways_path

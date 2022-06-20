@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Area:
+  = @stand.area
+%p
+  %b Brand:
+  = @stand.brand
+
+= link_to 'Edit', edit_stand_path(@stand)
+\|
+= link_to 'Back', stands_path
