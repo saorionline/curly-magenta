@@ -7,101 +7,80 @@ Parcel is a popular bundler that provides a simple and efficient way to bundle J
 You can find tutorials online that cover the basics of Parcel and how to integrate it with APIs. Here's a brief overview:
 
 * Initialize the project `npm init -y`
-* Install Parcel using npm or yarn: `npm install parcel` or `yarn add parcel`
-* Create a `parcel.config.js` file to configure Parcel
-* Use the `parcel` command to bundle your JavaScript files
-  
-# Step 2  
 
+# Step 2
+
+### Install Parcel -Integrate
+* Install Parcel as a development dependency using npm: `npm install -D parcel`
+
+# Step 3 
 ### Create Basic Files
 Create the following files in your project directory:
 
 * `index.html`: the main HTML file for your prototype
 * `styles.css`: the CSS file for styling your prototype
-* `script.js`: the JavaScript file for interacting with the API and updating the HTML
+* `index.js`: the JavaScript file for interacting with the API and updating the HTML
 
 ### Project Structure
 Your project structure should look like this:
 
-#### project/ index.html styles.css script.js parcel.config.js
+#### project/ index.html styles.css index.js
 
-# Step 3
-
-### Install Parcel -Integrate
-Install Parcel as a development dependency using `npm install -D parcel` for Development setting up environment  or `npm install parcel`
-
-### Create a `parcel.config.js` File
-Create a `parcel.config.js` file with the following configuration:
-```javascript
-module.exports = {
-  // Enable sourcemaps for debugging
-  sourcemaps: true,
-  // Output bundled files to a `dist` directory
-  outDir: './dist',
-};
-```
-#### Update script.js to Use Parcel
-Update your script.js file to use Parcel:
-```javascript
-// script.js
-import './styles.css';
-
-// Your JavaScript code here
-```
-
-#### Run Parcel
-Run Parcel using the parcel command: npx parcel script.js
-
-This will bundle your JavaScript files and output them to a dist directory.
-
-
-# Step 4: Fetch Data from the Platzi Fake Store API**
-
-### Use the `fetch` API
-Use the `fetch` API to make a GET request to the Platzi Fake Store API:
-
-# Step 5: Display Data in Your Prototype**
-
-### Populate HTML with Product Data
-Use the retrieved data to populate your HTML with product information:
-
-```javascript
-// script.js
-fetch('https://platzi-fake-store-api.herokuapp.com/products')
-  .then(response => response.json())
-  .then(data => {
-    const productsContainer = document.getElementById('products');
-
-    data.forEach(product => {
-      const productHTML = `
-        <div>
-          <img src="${product.image}" alt="${product.name}">
-          <h2>${product.name}</h2>
-          <p>Price: ${product.price}</p>
-        </div>
-      `;
-
-      productsContainer.innerHTML += productHTML;
-    });
-  })
-  .catch(error => console.error(error));   
-  ```
-
-# Update index.html
+# Step 4
+#### Update index.html
 Update your index.html file to include a container for the product data:
+
 ```html
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Platzi Fake Store Prototype</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Saori Clone Store Prototype</title>
+  <link type="text/css" rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="products"></div>
-  <script src="script.js"></script>
+<!--  Instead of this <div id="products"></div>
+  <script src="script.js"></script> -->
+    <main class="Main">
+    <include src="partials/header.html"></include>
+    <div id="app"></div>
+  </main>
 </body>
 </html>
 ```
+
+# Step 5
+Estilizar la Single Page
+
+[Rock-Explorer styles.css](https://github.com/saorionline/rock-explorer/blob/main/src/styles.css)
+
+
+# Step 6
+* Estructurar la lógica de la API
+[Rock Explorer index.js](https://github.com/saorionline/rock-explorer/blob/main/src/index.js)
+
+* Revisar en Inspect > Network que sea un array
+
+# Step 7
+Añadir los script para el entorno local
+[Rock Explorer package.json](https://github.com/saorionline/rock-explorer/blob/main/package.json)
+
+# Step 8
+
+Now that I've added new changes and resources I need to see if it works with 
+
+`npm run build`
+
+`npm run start`
+
+# Step 9
+**To finish the process with the installation of Git Hub Pages**
+
+`npm install gh -pages -D`
+
+***After updates and testing***
+
+`npm run deploy`
